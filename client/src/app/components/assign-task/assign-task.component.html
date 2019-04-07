@@ -1,0 +1,45 @@
+<div class="col-md-14 card card-body">
+    <div class="row">
+        <div class="col-md-4">
+            <h3 class="text-center">People</h3>
+            <div class="form-group">
+                <label for="inputPerson">Assign Person</label>
+                <select name="person" class="form-control" (change)="onChange($event)">
+                    <option value="0" selected>Choose...</option>
+                    <option *ngFor=" let person of people" [value]="person.id">{{person.name}} {{person.last_name}}</option>
+                </select>
+            </div>           
+            <button class="btn btn-success btn-block" (click)="saveAssignment()">
+                ADD
+            </button>    
+        </div>          
+        <div class="col-md-8">
+            <h3 class="text-center">Selected People</h3>
+            <div></div>
+            <div class="form-group">
+                <h5>Description: {{task.description}}</h5>
+            </div>
+            <div class="form-group">
+                <table class="table table-striped" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width:15px">Id</th>
+                            <th scope="col" style="width:65px">People</th>
+                            <th scope="col" style="width:20px"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor=" let assignment of assignments">
+                            <th scope="row" style="width:15px">{{ assignment.peopleId == '' ? '' : assignment.peopleId }}</th>
+                            <td style="width:65px">{{ assignment.name }} {{ assignment.last_name == '' ? '' : assignment.last_name }}</td>
+                            <td style="width:20px"><button class="btn btn-danger" (click)="deletePerson(assignment.peopleId)">
+                                DELETE
+                                </button> </td>
+                        </tr>
+                    </tbody>
+                </table>                
+            </div>                    
+        </div>
+    </div>
+</div>
+

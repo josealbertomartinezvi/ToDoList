@@ -1,0 +1,29 @@
+<div class="col-md-14 card card-body">
+    <div class="col-md-10 offset-md-1">
+        <h2>People List</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor=" let person of people">
+            <th scope="row">{{person.id}}</th>
+            <td>{{person.name}}</td>
+            <td>{{person.last_name}}</td>
+            <td><a [routerLink]="['/people/edit', person.id]" class="btn btn-info">
+                  SHOW
+                </a> </td>
+            <td><button class="btn btn-danger" (click)="deletePerson(person.id)">
+                  DELETE
+                </button> </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>    
+</div>
