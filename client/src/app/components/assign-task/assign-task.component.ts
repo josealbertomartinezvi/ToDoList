@@ -65,6 +65,7 @@ export class AssignTaskComponent implements OnInit {
   }
 
   getAssignments(params){
+    this.assignments = [];
     this.assignTaskService.getAssignments(params.id)
     .subscribe(
       res => {
@@ -94,6 +95,7 @@ export class AssignTaskComponent implements OnInit {
   deletePerson(id: string){
     this.assignTaskService.deleteAssignment(this.params.id, id).subscribe(
       res => {
+        alert(res);
         this.getAssignments(this.params);
         this.getPeople();
       },

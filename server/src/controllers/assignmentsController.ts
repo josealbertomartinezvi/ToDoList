@@ -10,7 +10,7 @@ class AssignmentsController{
         if(people.length > 0){
             return res.json(people);
         }else{
-            return res.json();  
+            return res.json({});  
         }
     }
 
