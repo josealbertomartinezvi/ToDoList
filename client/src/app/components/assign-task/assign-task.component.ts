@@ -65,7 +65,7 @@ export class AssignTaskComponent implements OnInit {
   }
 
   getAssignments(params){
-    this.assignments = [];
+    if(this.assignments.length == 1) this.assignments = [];
     this.assignTaskService.getAssignments(params.id)
     .subscribe(
       res => {
